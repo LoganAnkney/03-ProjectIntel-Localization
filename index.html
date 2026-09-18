@@ -16,7 +16,6 @@
       <div class="top-line">
         <img class="intel-logo" src="img/intel-header-logo.svg" alt="Intel Logo" />
         <span class="eyebrow" data-i18n="eyebrow-top">Progress report / 1968 - 2040</span>
-        <button class="lang-toggle" type="button" aria-label="Switch to Arabic" aria-pressed="false">العربية</button>
       </div>
       <h1 data-i18n="hero-title" data-i18n-html="true">Sustainability<br /><em>through the ages.</em></h1>
       <div class="hero-copy">
@@ -229,8 +228,45 @@
       "footer-line-2": { en: "Intel sustainability journey", ar: "رحلة الاستدامة في إنتل" }
     };
 
+    const persianTranslations = {
+      "eyebrow-top": "گزارش پیشرفت / ۱۹۶۸ - ۲۰۴۰",
+      "hero-title": "پایداری<br><em>در گذر زمان.</em>",
+      "hero-copy": "با نقاط عطفی آشنا شوید که آینده‌ای مسئولانه‌تر برای فناوری می‌سازند؛ از نخستین ریزپردازنده تا هدف ما برای انتشار خالص صفر.",
+      "scroll-link": "مشاهده جدول زمانی <span aria-hidden=\"true\">↓</span>",
+      "section-eyebrow": "تعهدی همواره زنده",
+      "section-heading": "نقاط عطفی که<br><span>مسیر را پیش می‌برند.</span>",
+      "section-heading-accent": "مسیر را پیش می‌برند.",
+      "section-intro": "برای دیدن رشد همزمان نوآوری و مسئولیت، نشانگر را روی هر نقطه عطف ببرید.",
+      "focus-title-1": "اقدام اقلیمی",
+      "focus-copy-1": "کاهش انتشار گازهای گلخانه‌ای با عملیات کارآمد و انرژی‌های تجدیدپذیر.",
+      "focus-title-2": "مدیریت مسئولانه آب",
+      "focus-copy-2": "حفاظت از منابع آب از طریق مصرف مسئولانه و بازسازی آن‌ها.",
+      "focus-title-3": "کاهش پسماند",
+      "focus-copy-3": "طراحی فرایندهایی که مواد را حفظ کرده و پسماند را کاهش می‌دهند.",
+      "accordion-eyebrow": "آشنایی با این تعهد",
+      "accordion-title": "پرسش‌هایی درباره فعالیت‌های پایداری اینتل",
+      "accordion-question-one": "انتشار خالص صفر برای اینتل به چه معناست؟",
+      "accordion-answer-one": "هدف اینتل برای سال ۲۰۴۰، دستیابی به انتشار خالص صفر گازهای گلخانه‌ای در عملیات جهانی شرکت است.",
+      "accordion-question-two": "اینتل چگونه از تولید مسئولانه حمایت می‌کند؟",
+      "accordion-answer-two": "این اقدامات شامل بهبود بهره‌وری انرژی، استفاده از برق تجدیدپذیر، کاهش پسماند و مدیریت مسئولانه آب است.",
+      "accordion-question-three": "از کجا می‌توانم درباره پیشرفت‌های آینده بیشتر بدانم؟",
+      "accordion-answer-three": "برای دریافت به‌روزرسانی‌های دوره‌ای درباره اهداف و پیشرفت‌های پایداری اینتل، در خبرنامه زیر ثبت‌نام کنید.",
+      "newsletter-eyebrow": "باخبر بمانید",
+      "newsletter-title": "در خبرنامه پایداری ثبت‌نام کنید",
+      "newsletter-copy": "به‌روزرسانی‌های دوره‌ای درباره پیشرفت‌ها و اهداف پایداری اینتل دریافت کنید.",
+      "newsletter-email-label": "نشانی ایمیل",
+      "newsletter-email-help": "هر زمان بخواهید می‌توانید اشتراک خود را لغو کنید.",
+      "newsletter-submit": "ثبت‌نام",
+      "newsletter-success": "سپاسگزاریم. درخواست اشتراک شما دریافت شد.",
+      "footer-copyright": "© ۲۰۲۶ شرکت اینتل. تمامی حقوق محفوظ است.",
+      "footer-privacy": "سیاست حفظ حریم خصوصی",
+      "footer-terms": "شرایط استفاده",
+      "footer-contact": "تماس با ما",
+      "footer-line-1": "برای کاوش حرکت کنید • روی یک نقطه عطف بروید یا آن را انتخاب کنید",
+      "footer-line-2": "مسیر پایداری اینتل"
+    };
+
     const root = document.documentElement;
-    const langToggle = document.querySelector('.lang-toggle');
     const translatableItems = document.querySelectorAll('[data-i18n]');
     const newsletterForm = document.querySelector('#newsletter-form');
     const newsletterStatus = document.querySelector('#newsletter-status');
@@ -276,11 +312,11 @@
 
     function applyLanguage(lang) {
       root.lang = lang;
-      root.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      root.dir = getLanguageDirection(lang);
 
       translatableItems.forEach((element) => {
         const key = element.dataset.i18n;
-        const value = translations[key]?.[lang];
+        const value = lang === 'fa' ? persianTranslations[key] : translations[key]?.[lang];
 
         if (!value) return;
 
@@ -291,16 +327,7 @@
         }
       });
 
-      const isArabic = lang === 'ar';
-      langToggle.textContent = isArabic ? 'English' : 'العربية';
-      langToggle.setAttribute('aria-label', isArabic ? 'Switch to English' : 'Switch to Arabic');
-      langToggle.setAttribute('aria-pressed', String(isArabic));
     }
-
-    langToggle.addEventListener('click', () => {
-      const nextLanguage = root.lang === 'ar' ? 'en' : 'ar';
-      applyLanguage(nextLanguage);
-    });
 
     newsletterForm.addEventListener('submit', (event) => {
       if (!newsletterForm.checkValidity()) return;
