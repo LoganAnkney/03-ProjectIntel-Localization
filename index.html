@@ -61,23 +61,60 @@
   <section class="py-5" aria-labelledby="focus-heading">
     <div class="container">
       <div class="row g-4">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <article class="h-100 p-4 border bg-white">
             <h2 id="focus-heading" class="h4" data-i18n="focus-title-1">Climate action</h2>
             <p class="mb-0" data-i18n="focus-copy-1">Reducing emissions through efficient operations and renewable energy.</p>
           </article>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <article class="h-100 p-4 border bg-white">
             <h2 class="h4" data-i18n="focus-title-2">Water stewardship</h2>
             <p class="mb-0" data-i18n="focus-copy-2">Protecting water resources through responsible use and restoration.</p>
           </article>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <article class="h-100 p-4 border bg-white">
             <h2 class="h4" data-i18n="focus-title-3">Waste reduction</h2>
             <p class="mb-0" data-i18n="focus-copy-3">Designing processes that conserve materials and reduce waste.</p>
           </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5" aria-labelledby="accordion-heading">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <p class="eyebrow" data-i18n="accordion-eyebrow">Explore the commitment</p>
+          <h2 id="accordion-heading" class="h3 mb-4" data-i18n="accordion-title">Questions about Intel's sustainability work</h2>
+          <div class="accordion" id="sustainabilityAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="accordion-heading-one">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-panel-one" aria-expanded="true" aria-controls="accordion-panel-one" data-i18n="accordion-question-one">What does net zero mean for Intel?</button>
+              </h3>
+              <div id="accordion-panel-one" class="accordion-collapse collapse show" aria-labelledby="accordion-heading-one" data-bs-parent="#sustainabilityAccordion">
+                <div class="accordion-body" data-i18n="accordion-answer-one">Intel's 2040 ambition is to reach net-zero greenhouse gas emissions across its global operations.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="accordion-heading-two">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-panel-two" aria-expanded="false" aria-controls="accordion-panel-two" data-i18n="accordion-question-two">How does Intel support responsible manufacturing?</button>
+              </h3>
+              <div id="accordion-panel-two" class="accordion-collapse collapse" aria-labelledby="accordion-heading-two" data-bs-parent="#sustainabilityAccordion">
+                <div class="accordion-body" data-i18n="accordion-answer-two">The work includes improving energy efficiency, using renewable electricity, reducing waste, and practicing water stewardship.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="accordion-heading-three">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-panel-three" aria-expanded="false" aria-controls="accordion-panel-three" data-i18n="accordion-question-three">Where can I learn about future progress?</button>
+              </h3>
+              <div id="accordion-panel-three" class="accordion-collapse collapse" aria-labelledby="accordion-heading-three" data-bs-parent="#sustainabilityAccordion">
+                <div class="accordion-body" data-i18n="accordion-answer-three">Subscribe to the newsletter below for occasional updates about Intel's sustainability goals and progress.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -91,17 +128,18 @@
             <p class="eyebrow" data-i18n="newsletter-eyebrow">Stay informed</p>
             <h2 id="newsletter-heading" class="h3" data-i18n="newsletter-title">Subscribe to the sustainability newsletter</h2>
             <p id="newsletter-description" class="mb-4" data-i18n="newsletter-copy">Receive occasional updates about Intel's sustainability progress and goals.</p>
-            <form action="#" method="post">
+            <form id="newsletter-form" action="#" method="post">
               <div class="row g-3 align-items-end">
                 <div class="col-12 col-md-8">
                   <label class="form-label" for="subscriber-email" data-i18n="newsletter-email-label">Email address</label>
-                  <input class="form-control" id="subscriber-email" name="email" type="email" autocomplete="email" required aria-describedby="newsletter-description email-help" />
+                  <input class="form-control" id="subscriber-email" name="email" type="email" inputmode="email" autocomplete="email" spellcheck="false" required aria-required="true" aria-describedby="newsletter-description email-help" />
                   <div class="form-text" id="email-help" data-i18n="newsletter-email-help">You can unsubscribe at any time.</div>
                 </div>
                 <div class="col-12 col-md-4">
                   <button class="btn btn-primary w-100" type="submit" data-i18n="newsletter-submit">Subscribe</button>
                 </div>
               </div>
+              <p class="visually-hidden" id="newsletter-status" role="status" aria-live="polite" tabindex="-1" data-i18n="newsletter-success">Thanks. Your subscription request has been received.</p>
             </form>
           </div>
         </div>
@@ -124,6 +162,7 @@
     </nav>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
     const translations = {
       "eyebrow-top": { en: "Progress report / 1968 - 2040", ar: "تقرير التقدم / 1968 - 2040" },
@@ -167,12 +206,21 @@
       "focus-copy-2": { en: "Protecting water resources through responsible use and restoration.", ar: "حماية موارد المياه من خلال الاستخدام المسؤول والاستعادة." },
       "focus-title-3": { en: "Waste reduction", ar: "تقليل النفايات" },
       "focus-copy-3": { en: "Designing processes that conserve materials and reduce waste.", ar: "تصميم عمليات تحافظ على المواد وتقلل النفايات." },
+      "accordion-eyebrow": { en: "Explore the commitment", ar: "استكشف الالتزام" },
+      "accordion-title": { en: "Questions about Intel's sustainability work", ar: "أسئلة حول جهود إنتل في الاستدامة" },
+      "accordion-question-one": { en: "What does net zero mean for Intel?", ar: "ماذا يعني الصفر الصافي لإنتل؟" },
+      "accordion-answer-one": { en: "Intel's 2040 ambition is to reach net-zero greenhouse gas emissions across its global operations.", ar: "يتمثل طموح إنتل لعام 2040 في الوصول إلى صافي انبعاثات صفرية من غازات الدفيئة عبر عملياتها العالمية." },
+      "accordion-question-two": { en: "How does Intel support responsible manufacturing?", ar: "كيف تدعم إنتل التصنيع المسؤول؟" },
+      "accordion-answer-two": { en: "The work includes improving energy efficiency, using renewable electricity, reducing waste, and practicing water stewardship.", ar: "يشمل ذلك تحسين كفاءة الطاقة، واستخدام الكهرباء المتجددة، وتقليل النفايات، والإدارة المسؤولة للمياه." },
+      "accordion-question-three": { en: "Where can I learn about future progress?", ar: "أين يمكنني معرفة المزيد عن التقدم المستقبلي؟" },
+      "accordion-answer-three": { en: "Subscribe to the newsletter below for occasional updates about Intel's sustainability goals and progress.", ar: "اشترك في النشرة الإخبارية أدناه للحصول على تحديثات دورية حول أهداف إنتل وتقدمها في مجال الاستدامة." },
       "newsletter-eyebrow": { en: "Stay informed", ar: "ابقَ على اطلاع" },
       "newsletter-title": { en: "Subscribe to the sustainability newsletter", ar: "اشترك في النشرة الإخبارية للاستدامة" },
       "newsletter-copy": { en: "Receive occasional updates about Intel's sustainability progress and goals.", ar: "احصل على تحديثات دورية حول تقدم إنتل وأهدافها في مجال الاستدامة." },
       "newsletter-email-label": { en: "Email address", ar: "عنوان البريد الإلكتروني" },
       "newsletter-email-help": { en: "You can unsubscribe at any time.", ar: "يمكنك إلغاء الاشتراك في أي وقت." },
       "newsletter-submit": { en: "Subscribe", ar: "اشترك" },
+      "newsletter-success": { en: "Thanks. Your subscription request has been received.", ar: "شكرًا لك. تم استلام طلب اشتراكك." },
       "footer-copyright": { en: "© 2026 Intel Corporation. All rights reserved.", ar: "© 2026 شركة إنتل. جميع الحقوق محفوظة." },
       "footer-privacy": { en: "Privacy Policy", ar: "سياسة الخصوصية" },
       "footer-terms": { en: "Terms of Use", ar: "شروط الاستخدام" },
@@ -184,6 +232,47 @@
     const root = document.documentElement;
     const langToggle = document.querySelector('.lang-toggle');
     const translatableItems = document.querySelectorAll('[data-i18n]');
+    const newsletterForm = document.querySelector('#newsletter-form');
+    const newsletterStatus = document.querySelector('#newsletter-status');
+    const rtlLanguages = new Set(['ar', 'arc', 'dv', 'fa', 'he', 'ku', 'nqo', 'ps', 'sd', 'ug', 'ur', 'yi']);
+    let watchedTranslateSelect = null;
+
+    function getCurrentLanguage() {
+      const translateSelect = document.querySelector('.goog-te-combo');
+      return translateSelect?.value || root.getAttribute('lang') || document.body.getAttribute('lang') || '';
+    }
+
+    function getLanguageDirection(language) {
+      const languageCode = language.toLowerCase().split(/[-_]/)[0];
+
+      if (rtlLanguages.has(languageCode)) return 'rtl';
+
+      try {
+        const localeDirection = new Intl.Locale(language).textInfo?.direction;
+        if (localeDirection === 'rtl' || localeDirection === 'ltr') return localeDirection;
+      } catch (error) {
+        // Use the standard left-to-right default when a browser cannot parse the locale.
+      }
+
+      return 'ltr';
+    }
+
+    function syncDirectionWithLanguage() {
+      const translatedRtl = document.body.classList.contains('translated-rtl');
+      const translatedLtr = document.body.classList.contains('translated-ltr');
+      const language = getCurrentLanguage().toLowerCase().split(/[-_]/)[0];
+      const direction = translatedRtl ? 'rtl' : translatedLtr ? 'ltr' : getLanguageDirection(language);
+
+      if (root.dir !== direction) root.dir = direction;
+    }
+
+    function watchGoogleTranslate() {
+      const translateSelect = document.querySelector('.goog-te-combo');
+      if (!translateSelect || translateSelect === watchedTranslateSelect) return;
+
+      translateSelect.addEventListener('change', syncDirectionWithLanguage);
+      watchedTranslateSelect = translateSelect;
+    }
 
     function applyLanguage(lang) {
       root.lang = lang;
@@ -213,7 +302,37 @@
       applyLanguage(nextLanguage);
     });
 
-    applyLanguage('en');
+    newsletterForm.addEventListener('submit', (event) => {
+      if (!newsletterForm.checkValidity()) return;
+
+      event.preventDefault();
+      newsletterStatus.classList.remove('visually-hidden');
+      newsletterStatus.focus();
+      newsletterForm.reset();
+    });
+
+    const languageObserver = new MutationObserver(() => {
+      syncDirectionWithLanguage();
+      watchGoogleTranslate();
+    });
+
+    languageObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang', 'dir', 'class'],
+      childList: true,
+      subtree: true
+    });
+
+    languageObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['lang', 'dir', 'class'],
+      childList: true,
+      subtree: true
+    });
+
+    syncDirectionWithLanguage();
+    watchGoogleTranslate();
+    syncDirectionWithLanguage();
   </script>
 </body>
 </html>
