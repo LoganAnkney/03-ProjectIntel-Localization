@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260">
+  <rect width="800" height="260" fill="#0068b5"/>
+  <circle cx="610" cy="132" r="83" fill="#062b49" stroke="#00c7fd" stroke-width="6"/>
+  <path d="M527 132h166M610 49c-36 31-36 135 0 166M610 49c36 31 36 135 0 166M545 92c40 19 90 19 130 0M545 172c40-19 90-19 130 0" fill="none" stroke="#e7f5fb" stroke-width="4" opacity=".8"/>
+  <path d="M80 184c57-54 104-54 150 0 46 54 92 54 149 0" fill="none" stroke="#8bdc9a" stroke-width="14" stroke-linecap="round"/>
+  <text x="48" y="62" fill="#fff" font-family="Arial, sans-serif" font-size="31" font-weight="bold">NET-ZERO 2040</text>
+</svg>

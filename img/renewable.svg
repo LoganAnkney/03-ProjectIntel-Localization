@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260">
+  <rect width="800" height="260" fill="#f1eee5"/>
+  <circle cx="650" cy="68" r="38" fill="#ff7300"/>
+  <path d="M70 204h660" stroke="#062b49" stroke-width="6"/>
+  <path d="M120 204l30-82h142l30 82z" fill="#0068b5" stroke="#062b49" stroke-width="6"/>
+  <path d="M168 130l-13 70M215 130l-1 70M262 130l13 70M140 157h131M131 180h151" stroke="#00c7fd" stroke-width="4"/>
+  <path d="M510 204V86M510 86l-42-28M510 86l45-25M510 86l-2 54" fill="none" stroke="#038d92" stroke-width="7" stroke-linecap="round"/>
+  <text x="48" y="54" fill="#062b49" font-family="Arial, sans-serif" font-size="29" font-weight="bold">CLEANER POWER</text>
+</svg>
